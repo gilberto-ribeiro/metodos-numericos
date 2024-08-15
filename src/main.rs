@@ -1,4 +1,4 @@
-use numerical_methods::*;
+use metodos_numericos::*;
 
 const R: f64 = 8.314;
 
