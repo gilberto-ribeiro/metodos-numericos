@@ -1,4 +1,4 @@
-pub struct ResultadoZeroDeFuncao {
+pub struct Resultado {
     pub raiz: f64,
     pub iteracoes: u32,
     pub erro: f64,
@@ -8,7 +8,7 @@ pub fn bisseccao(
     f: fn(f64) -> f64,
     intervalo: (f64, f64),
     tolerancia: f64,
-) -> ResultadoZeroDeFuncao {
+) -> Resultado {
     let (mut a, mut b) = intervalo;
     let mut erro: f64 = (b - a).abs();
     let mut i: u32 = 0;
@@ -23,7 +23,7 @@ pub fn bisseccao(
         erro = (b - a).abs();
         i += 1;
     }
-    ResultadoZeroDeFuncao {
+    Resultado {
         raiz: c,
         iteracoes: i,
         erro,
@@ -34,7 +34,7 @@ pub fn regula_falsi(
     f: fn(f64) -> f64,
     intervalo: (f64, f64),
     tolerancia: f64,
-) -> ResultadoZeroDeFuncao {
+) -> Resultado {
     let (mut a, mut b) = intervalo;
     let mut erro: f64 = (b - a).abs();
     let mut i: u32 = 0;
@@ -49,7 +49,7 @@ pub fn regula_falsi(
         erro = (b - a).abs();
         i += 1;
     }
-    ResultadoZeroDeFuncao {
+    Resultado {
         raiz: c,
         iteracoes: i,
         erro,
