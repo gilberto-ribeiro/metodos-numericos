@@ -1,17 +1,12 @@
 use metodos_numericos::*;
 
-const R: f64 = 8.314;
-
 fn main() {
-    let intervalo: (f64, f64) = (300.0, 500.0);
+    // let intervalo: (f64, f64) = (300.0, 500.0);
     let tolerancia: f64 = 1e-10;
-    let metodos = [zero_de_funcao::bisseccao, zero_de_funcao::regula_falsi];
-    for metodo in metodos {
-        let resultado = metodo(exercicio_1, intervalo, tolerancia);
-        println!("Raiz: {}", resultado.raiz);
-        println!("Iterações: {}", resultado.iteracoes);
-        println!("Erro: {}", resultado.erro);
-    }
+    let resultado = zero_de_funcao::secante(exercicio_1, (400.0, 450.0), tolerancia);
+    println!("Raiz: {}", resultado.raiz);
+    println!("Iterações: {}", resultado.iteracoes);
+    println!("Erro: {}", resultado.erro);
 }
 
 fn exercicio_1(x: f64) -> f64 {
